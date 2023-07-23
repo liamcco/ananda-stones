@@ -1,8 +1,6 @@
 "use client";
 
 import { Stone } from "@/types/Stone";
-import Link from "next/link";
-import Image from "next/image";
 import { useFilterController } from "@/controllers/filterController";
 import StoneGalleryCard from "./StoneGalleryCard";
 import Searchfield from "./Searchfield";
