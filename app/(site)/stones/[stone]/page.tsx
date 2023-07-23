@@ -10,6 +10,7 @@ interface Props {
 export default async function Stone(props: Props) {
   const slug = props.params.stone;
   const stone = await getStone(slug);
+  console.log(stone.tags);
 
   return (
     <div className="flex flex-col items-center md:items-baseline min-m-md">
