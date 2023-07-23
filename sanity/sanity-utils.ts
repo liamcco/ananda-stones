@@ -1,7 +1,8 @@
+import { Stone } from "@/types/Stone";
 import { createClient, groq } from "next-sanity";
 
 
-export async function getStones() {
+export async function getStones(): Promise<Stone[]> {
     const client = createClient({
         projectId: "6l1wyfou",
         dataset: "production",

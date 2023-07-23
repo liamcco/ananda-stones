@@ -5,7 +5,7 @@ export default async function Home() {
 
   return (
     <div>
-      {stones.map((stone: any) => (
+      {stones.map((stone) => (
         <div key={stone._id}>
           <h2>{stone.name}</h2>
           <p>{stone.description}</p>
