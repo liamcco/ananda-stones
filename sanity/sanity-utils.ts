@@ -15,8 +15,8 @@ export async function getStones(): Promise<Stone[]> {
             name,
             description,
             tags, 
-            slug, 
-            image, 
+            "slug": slug.current, 
+            "image": image.asset->url, 
             chakra, 
             element, 
             zodiac
