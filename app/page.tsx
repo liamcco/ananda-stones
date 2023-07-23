@@ -8,10 +8,10 @@ export default async function Home() {
   return (
     <div className="max-w-5xl mx-auto">
       <h1 className="text-7xl font-extrabold">
+        Ananda{" "}
         <span className="bg-gradient-to-r from-green-600 to-green-400 bg-clip-text text-transparent">
-          Ananda
-        </span>{" "}
-        Stones
+          Stones
+        </span>
       </h1>
       <p className="mt-3 text-xl text-gray-600">Hitta din sten</p>
       <h2 className="mt-24 font-bold text-gray-700 text-3xl">Alla stenar</h2>
