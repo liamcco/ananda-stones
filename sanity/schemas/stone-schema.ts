@@ -46,12 +46,28 @@ const stone = {
             type: 'array',
             of: [
               {
-                type: 'reference',
-                to: [{ type: 'tag' }],
+                type: 'string',
               },
             ],
             options: {
-              layout: 'tags',
+                'layout': 'grid',
+              list: [
+                { value: 'Kärlek', title: 'Kärlek' },
+                { value: 'Sömn', title: 'Sömn' },
+                { value: 'Stress', title: 'Stress' },
+                { value: 'Självkänsla', title: 'Självkänsla' },
+                { value: 'Kreativitet', title: 'Kreativitet' },
+                { value: 'Kommunikation', title: 'Kommunikation' },
+                { value: 'Fokus', title: 'Fokus' },
+                { value: 'Motivation', title: 'Motivation' },
+                { value: 'Balans', title: 'Balans' },
+                { value: 'Glädje', title: 'Glädje' },
+                { value: 'Mod', title: 'Mod' },
+                { value: 'Klarhet', title: 'Klarhet' },
+                { value: 'Lugn', title: 'Lugn' },
+                { value: 'Kraft', title: 'Kraft' },
+                { value: 'Kreativitet', title: 'Kreativitet' },
+              ],
             }
         },
         {
@@ -92,6 +108,7 @@ const stone = {
                 }
             ],
             options: {
+                'layout': 'grid',
                 list: [
                     {
                     value: 'Väduren',

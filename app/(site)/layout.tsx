@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="max-w-5xl mx-auto py-10 px-2 md:mx-10">
+      <body className="max-w-5xl mx-auto py-10 px-10">
         <nav className="mx-4">
           <Link
             href="/"

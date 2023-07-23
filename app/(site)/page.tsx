@@ -6,7 +6,7 @@ export default async function Home() {
   const stones = await getStones();
 
   return (
-    <div className="max-w-5xl mx-auto flex flex-col items-center md:block">
+    <div className="max-w-5xl flex flex-col items-center md:block">
       <AppTitle />
       <StoneGallery stones={stones} />
     </div>

@@ -14,14 +14,12 @@ export default function Searchfield(props: Props) {
   };
 
   return (
-    <div>
-      <input
-        placeholder="aventurin"
-        type="search"
-        value={query}
-        onChange={handleChange}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5"
-      />
-    </div>
+    <input
+      placeholder="aventurin"
+      type="search"
+      value={query}
+      onChange={handleChange}
+      className="bg-gray-50 w-full border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 p-2.5"
+    />
   );
 }
