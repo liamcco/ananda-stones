@@ -12,12 +12,12 @@ export default async function Stone(props: Props) {
   const stone = await getStone(slug);
 
   return (
-    <div className="max-w-3xl mx-auto py-20s">
+    <div className="flex flex-col items-center md:items-baseline min-m-md">
       <header>
         <h1 className="text-5xl font-extrabold drop-shadow">{stone.name}</h1>
       </header>
 
-      <div className="flex mt-4">
+      <div className="flex flex-col md:flex-row mt-4 items-center">
         {stone.image && (
           <Image
             src={stone.image}
@@ -27,7 +27,7 @@ export default async function Stone(props: Props) {
             className="object-cover rounded-lg p-4"
           />
         )}
-        <div className="text-lg text-gray-700 mt-4">
+        <div className="text-lg text-gray-700 mt-4 text-center md:text-left">
           <p>{stone.description}</p>
         </div>
       </div>
