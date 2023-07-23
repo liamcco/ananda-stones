@@ -22,16 +22,18 @@ export default async function Home() {
             href={`/stones/${stone.slug}`}
             className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-green-500 transition"
           >
-            {stone.image && (
-              <Image
-                src={stone.image}
-                alt={stone.name}
-                width={750}
-                height={300}
-                className="object-cover rounded-lg border border-gray-500"
-              />
-            )}
-            <div className="font-extrabold mt-2">{stone.name}</div>
+            <div className="flex flex-col items-center">
+              {stone.image && (
+                <Image
+                  src={stone.image}
+                  alt={stone.name}
+                  width={750}
+                  height={300}
+                  className="object-cover rounded-lg p-4"
+                />
+              )}
+              <div className="font-extrabold my-2">{stone.name}</div>
+            </div>
           </Link>
         ))}
       </div>
