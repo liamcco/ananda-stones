@@ -35,7 +35,14 @@ export function useFilterController(stones: Stone[]): FilterControls {
 
     async function searchFor(query: string) {
         if (query === "") return setIDsToShow(allStoneIDs);
-        const matchingStones = stones.filter(stone => stone.name.toLowerCase().includes(query.toLowerCase()));
+        const matchingStones = stones.filter(stone => 
+            stone.name.toLowerCase().includes(query.toLowerCase())
+            || stone.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+            || (stone.chakra && stone.chakra.some(chakra => chakra.toLowerCase().includes(query.toLowerCase())))
+            || (stone.element && stone.element.some(element => element.toLowerCase() === query.toLowerCase()))
+            || (stone.month && stone.month.some(month => month.toLowerCase() === query.toLowerCase()))
+            || (stone.zodiac && stone.zodiac.some(zodiac => zodiac.toLowerCase() === query.toLowerCase()))
+        );
         const matchingIDs = matchingStones.map(stone => stone._id);
 
         setIDsToShow(matchingIDs);
