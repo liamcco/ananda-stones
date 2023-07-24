@@ -1,5 +1,5 @@
 import { zodiacEntries, elementEntries, tagEntries, chakraEntries, monthEntries } from './stonePropertiesData';
-
+import type { Rule } from '@sanity/types';
 
 const stone = {
     name: 'stone',
@@ -10,6 +10,7 @@ const stone = {
             name: 'name',
             title: 'Namn',
             type: 'string',
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'slug',
@@ -18,16 +19,19 @@ const stone = {
             options: {
                 source: 'name',
             },
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'subtitle',
             title: 'Underrubrik',
             type: 'string',
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'description',
             title: 'Beskrivning',
             type: 'text',
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'image',
@@ -37,6 +41,7 @@ const stone = {
             options: {
                 hotspot: true,
             },
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'tags',
@@ -50,7 +55,8 @@ const stone = {
             options: {
               'layout': 'grid',
               list: tagEntries,
-            }
+            },
+            validation: (rule: Rule) => rule.required()
         },
         {
             name: 'chakra',
