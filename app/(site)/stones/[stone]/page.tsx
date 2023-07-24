@@ -16,13 +16,7 @@ export default async function Stone(props: Props) {
       <header className="flex flex-col items-center gap-2">
         <h1 className="text-5xl font-extrabold drop-shadow">{stone.name}</h1>
         {stone.tags && (
-          <div className="text-xl text-gray-700">
-            {stone.tags.map((tag) => (
-              <span key={tag} className="mr-2">
-                {tag}
-              </span>
-            ))}
-          </div>
+          <div className="text-xl text-gray-700">{stone.subtitle}</div>
         )}
       </header>
 
