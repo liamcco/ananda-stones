@@ -4,13 +4,16 @@ import { HelpsWith, ChakraList, ElementList, ZodiacList, MonthList } from "./Car
 
 interface Props {
   stone: Stone;
+  index?: number;
 }
 
 export default function StoneGalleryCard(props: Props) {
   const stone = props.stone;
+  const zIndex = props.index !== undefined ? `absolute z-[${props.index}]` : '';
+
   return (
     <div
-      className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-green-500 transition max-w-xs mx-4"
+      className={`bg-white border-2 border-gray-500 rounded-lg p-1 max-w-xs mx-4 ${zIndex}`}
     >
       <div className="px-2 pb-4">
         <Image

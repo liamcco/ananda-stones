@@ -22,9 +22,9 @@ export default function StoneGallery(props: Props) {
       </div>
 
       {stonesToShow.length > 0 ? (
-        <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {stonesToShow.map((stone) => (
-            <StoneGalleryCard key={stone._id} stone={stone} />
+        <div className="mt-5 flex justify-center">
+          {stonesToShow.map((stone, index) => (
+            <StoneGalleryCard key={stone._id} stone={stone} index={index}/>
           ))}
         </div>
       ) : (
