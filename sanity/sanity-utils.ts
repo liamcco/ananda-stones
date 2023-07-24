@@ -33,7 +33,7 @@ export async function getStone(slug: string): Promise<Stone> {
             "slug": slug.current, 
             "image": image.asset->url, 
             chakra, 
-            element, 
+            element,
             zodiac
         }`,
         { slug }
