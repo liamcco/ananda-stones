@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Stone } from "@/types/Stone";
 
 export interface FilterControls {
@@ -44,11 +44,10 @@ export function useFilterController(stones: Stone[]): FilterControls {
             || (stone.zodiac && stone.zodiac.some(zodiac => zodiac.toLowerCase() === query.toLowerCase()))
         );
         const matchingIDs = matchingStones.map(stone => stone._id);
-
         setIDsToShow(matchingIDs);
     }
 
-    return {
+    return useMemo(() => ({
         searchFor,
         IDsToShow,
         numOfMatches: IDsToShow.length,
@@ -58,4 +57,5 @@ export function useFilterController(stones: Stone[]): FilterControls {
         previous,
         selectStone,
     }
+    ), [IDsToShow, currentStoneIndex]);
 }
