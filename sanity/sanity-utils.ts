@@ -2,7 +2,7 @@ import { Stone } from "@/types/Stone";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
-
+// Fetch all stones
 export async function getStones(): Promise<Stone[]> {
     const client = createClient(clientConfig);
 
@@ -10,17 +10,21 @@ export async function getStones(): Promise<Stone[]> {
         groq`*[_type == "stone"]{
             _id,
             name,
+            slug,
+            subtitle,
             description,
-            tags, 
-            "slug": slug.current, 
             "image": image.asset->url, 
+            tags, 
             chakra, 
             element, 
-            zodiac
+            zodiac,
+            month,
+            instore
         }`
     )
 }
 
+// Fetch a single stone from slug
 export async function getStone(slug: string): Promise<Stone> {
     const client = createClient(clientConfig);
 
@@ -28,13 +32,16 @@ export async function getStone(slug: string): Promise<Stone> {
         groq`*[_type == "stone" && slug.current == $slug][0]{
             _id,
             name,
+            slug,
+            subtitle,
             description,
-            tags, 
-            "slug": slug.current, 
             "image": image.asset->url, 
+            tags, 
             chakra, 
-            element,
-            zodiac
+            element, 
+            zodiac,
+            month,
+            instore
         }`,
         { slug }
     )

@@ -1,6 +1,13 @@
-import { Stone } from "@/types/Stone";
-import Link from "next/link";
+import type { Stone } from "@/types/Stone";
 import Image from "next/image";
+import {
+  HelpsWith,
+  ChakraList,
+  ElementList,
+  ZodiacList,
+  MonthList,
+} from "./CardFields";
+import { useState } from "react";
 
 interface Props {
   stone: Stone;
@@ -8,23 +15,31 @@ interface Props {
 
 export default function StoneGalleryCard(props: Props) {
   const stone = props.stone;
+
   return (
-    <Link
-      href={`/stones/${stone.slug}`}
-      className="border-2 border-gray-500 rounded-lg p-1 hover:scale-105 hover:border-green-500 transition max-w-xs mx-4"
-    >
-      <div className="flex flex-col items-center">
-        {stone.image && (
-          <Image
-            src={stone.image}
-            alt={stone.name}
-            width={750}
-            height={300}
-            className="object-cover rounded-lg p-4"
-          />
-        )}
-        <div className="font-extrabold my-2">{stone.name}</div>
+    <div className="bg-white border-2 border-gray-500 rounded-lg p-1 max-w-xs m-4">
+      <div className="px-2 pb-4">
+        <Image
+          src={stone.image}
+          alt={stone.name}
+          width={750}
+          height={300}
+          className="object-cover rounded-lg p-4"
+        />
+        <div className="text-center mb-4">
+          <div className="font-extrabold text-2xl mb-2">{stone.name}</div>
+          <div className="text-sm font-bold mb-4">{stone.subtitle}</div>
+          <div className="text-sm">{stone.description}</div>
+        </div>
+
+        <div className="flex flex-col gap-4 px-2">
+          <HelpsWith tags={stone.tags} />
+          <ChakraList chakras={stone.chakra} />
+          <ElementList elements={stone.element} />
+          <ZodiacList zodiacs={stone.zodiac} />
+          <MonthList months={stone.month} />
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
