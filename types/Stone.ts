@@ -6,9 +6,9 @@ export type Stone = {
     description: string;
     image: string;
     tags: string[];
-    chakra: string[];
-    element: string[];
-    zodiac: string[];
-    month: string[];
-    instore: boolean;
+    chakra?: string[];
+    element?: string[];
+    zodiac?: string[];
+    month?: string[];
+    instore?: boolean;
 }
