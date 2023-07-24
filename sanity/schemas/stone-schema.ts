@@ -1,3 +1,6 @@
+import { zodiacEntries, elementEntries, tagEntries, chakraEntries, monthEntries } from './stonePropertiesData';
+
+
 const stone = {
     name: 'stone',
     title: 'Stones',
@@ -5,7 +8,7 @@ const stone = {
     fields: [
         {
             name: 'name',
-            title: 'Name',
+            title: 'Namn',
             type: 'string',
         },
         {
@@ -17,32 +20,27 @@ const stone = {
             },
         },
         {
+            name: 'subtitle',
+            title: 'Underrubrik',
+            type: 'string',
+        },
+        {
             name: 'description',
-            title: 'Description',
+            title: 'Beskrivning',
             type: 'text',
         },
         {
             name: 'image',
-            title: 'Image',
+            title: 'Bild',
             type: 'image',
-            description: 'Image of the stone',
+            description: 'Bild av stenen',
             options: {
                 hotspot: true,
             },
-            fields: [
-                {
-                    name: 'alt',
-                    title: 'Alternative text',
-                    type: 'string',
-                    options: {
-                        source: 'name',
-                    },
-                }
-            ],
         },
         {
             name: 'tags',
-            title: 'Helps with',
+            title: 'Hjälpområde',
             type: 'array',
             of: [
               {
@@ -50,52 +48,36 @@ const stone = {
               },
             ],
             options: {
-                'layout': 'grid',
-              list: [
-                { value: 'Kärlek', title: 'Kärlek' },
-                { value: 'Sömn', title: 'Sömn' },
-                { value: 'Stress', title: 'Stress' },
-                { value: 'Självkänsla', title: 'Självkänsla' },
-                { value: 'Kreativitet', title: 'Kreativitet' },
-                { value: 'Kommunikation', title: 'Kommunikation' },
-                { value: 'Fokus', title: 'Fokus' },
-                { value: 'Motivation', title: 'Motivation' },
-                { value: 'Balans', title: 'Balans' },
-                { value: 'Glädje', title: 'Glädje' },
-                { value: 'Mod', title: 'Mod' },
-                { value: 'Klarhet', title: 'Klarhet' },
-                { value: 'Lugn', title: 'Lugn' },
-                { value: 'Kraft', title: 'Kraft' },
-                { value: 'Kreativitet', title: 'Kreativitet' },
-              ],
+              'layout': 'grid',
+              list: tagEntries,
             }
         },
         {
             name: 'chakra',
             title: 'Chakra',
-            type: 'string',
+            type: 'array',
+            of: [
+                {
+                    type: 'string'
+                }
+            ],
             options: {
-                list: [
-                    'Hjärtchakrat',
-                    'Solar Plexus',
-                    'Baschakrat',
-                    'Halschakrat',
-                    'Pannchakrat',
-                    'Kronchakrat',
-                ], 
+                'layout': 'grid',
+                list: chakraEntries,
             }
         },
         {
             name: 'element',
             title: 'Element',
-            type: 'string',
+            type: 'array',
+            of: [
+                {
+                    type: 'string'
+                }
+            ],
             options: {
-                list: [
-                    'Jord',
-                    'Luft',
-                    'Eld',
-                    'Vatten',
-                ], 
+                'layout': 'grid',
+                list: elementEntries,
             }
         },
         {
@@ -109,46 +91,28 @@ const stone = {
             ],
             options: {
                 'layout': 'grid',
-                list: [
-                    {
-                    value: 'Väduren',
-                    title: 'Väduren'},
-                    {
-                    value: 'Oxen',
-                    title: 'Oxen'},
-                    {
-                    value: 'Tvillingarna',
-                    title: 'Tvillingarna'},
-                    {
-                    value: 'Kräftan',
-                    title: 'Kräftan'},
-                    {
-                    value: 'Lejonet',
-                    title: 'Lejonet'},
-                    {
-                    value: 'Jungfrun',
-                    title: 'Jungfrun'},
-                    {
-                    value: 'Vågen',
-                    title: 'Vågen'},
-                    {
-                    value: 'Skorpionen',
-                    title: 'Skorpionen'},
-                    {
-                    value: 'Skytten',
-                    title: 'Skytten'},
-                    {
-                    value: 'Stenbocken',
-                    title: 'Stenbocken'},
-                    {
-                    value: 'Vattumannen',
-                    title: 'Vattumannen'},
-                    {
-                    value: 'Fiskarna',
-                    title: 'Fiskarna'},
-                ]
+                list: zodiacEntries,
             }
         },
+        {
+            name: 'month',
+            title: 'Månad',
+            type: 'array',
+            of: [
+                {
+                    type: 'string'
+                }
+            ],
+            options: {
+                'layout': 'grid',
+                list: monthEntries,
+            }
+        },
+        {
+            name: 'instore',
+            title: 'Finns i butik',
+            type: 'boolean',
+        }
     ],
 }
 
