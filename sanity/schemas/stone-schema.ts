@@ -1,6 +1,5 @@
 import { zodiacEntries, elementEntries, tagEntries, chakraEntries, monthEntries } from './stonePropertiesData';
 
-
 const stone = {
     name: 'stone',
     title: 'Stones',
