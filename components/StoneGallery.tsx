@@ -11,14 +11,15 @@ interface Props {
 export default function StoneGallery(props: Props) {
   const [indexOfCurrentStone, setIndexOfCurrentStone] = useState(0);
 
-  function handleScroll(event: React.UIEvent<HTMLDivElement>) {
+  const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
-    const scrollLeft = target.scrollLeft;
-    const scrollWidth = target.scrollWidth;
-    const scrollPercentage = scrollLeft / scrollWidth;
+    const scrollPercentage = target.scrollLeft / target.scrollWidth;
     const index = Math.round(scrollPercentage * props.stones.length);
-    index !== indexOfCurrentStone && setIndexOfCurrentStone(index);
-  }
+    if (index !== indexOfCurrentStone) {
+      setIndexOfCurrentStone(index);
+      console.log("index", index);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center gap-2">
@@ -29,8 +30,8 @@ export default function StoneGallery(props: Props) {
         className="flex w-[24rem] overflow-x-auto snap-x snap-mandatory"
         onScroll={handleScroll}
       >
-        {props.stones.map((stone) => (
-          <div key={stone._id}>
+        {props.stones.map((stone, index) => (
+          <div key={stone._id} id={"card-" + index.toString()}>
             <div className="w-[20rem] snap-always snap-center mx-[2rem]">
               <StoneGalleryCard key={stone._id} stone={stone} />
             </div>
