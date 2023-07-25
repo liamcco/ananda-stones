@@ -10,10 +10,10 @@ interface Props {
 export default function StoneGallery(props: Props) {
   return (
     <div className="flex justify-center">
-      <div className="flex w-full max-w-sm overflow-x-auto snap-x snap-mandatory scroll-smooth">
+      <div className="flex w-[24rem] overflow-x-auto snap-x snap-mandatory">
         {props.stones.map((stone) => (
           <div key={stone._id}>
-            <div className="w-[90vw] max-w-xs snap-always snap-center m-4">
+            <div className="w-[20rem] snap-always snap-center m-[2rem]">
               <StoneGalleryCard key={stone._id} stone={stone} />
             </div>
           </div>
