@@ -17,7 +17,7 @@ export default function StoneGallery(props: Props) {
     const index = Math.round(scrollPercentage * props.stones.length);
     if (index !== indexOfCurrentStone) {
       setIndexOfCurrentStone(index);
-      console.log("index", index);
+      document.body.style.background = index % 2 === 0 ? "#cca6f6" : "#f9fafb";
     }
   };
 
