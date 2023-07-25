@@ -1,12 +1,6 @@
 import type { Stone } from "@/types/Stone";
 import Image from "next/image";
-import {
-  HelpsWith,
-  ChakraList,
-  ElementList,
-  ZodiacList,
-  MonthList,
-} from "./CardFields";
+import { CardField } from "./CardField";
 
 interface Props {
   stone: Stone;
@@ -33,11 +27,11 @@ export default function StoneGalleryCard(props: Props) {
         </div>
 
         <div className="flex flex-wrap gap-4 px-2">
-          <HelpsWith tags={stone.tags} />
-          <ChakraList chakras={stone.chakra} />
-          <ElementList elements={stone.element} />
-          <ZodiacList zodiacs={stone.zodiac} />
-          <MonthList months={stone.month} />
+          <CardField title="Hjälper med" field={stone.tags} size="lg" />
+          <CardField title="Chakra" field={stone.chakra} />
+          <CardField title="Element" field={stone.element} />
+          <CardField title="Zodiac" field={stone.zodiac} />
+          <CardField title="Månad" field={stone.month} />
         </div>
       </div>
     </div>
