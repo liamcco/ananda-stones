@@ -14,7 +14,7 @@ export default function Searchfield(props: Props) {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center m-4">
       <input
         placeholder="aventurin"
         type="search"

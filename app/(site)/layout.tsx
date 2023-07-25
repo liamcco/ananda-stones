@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="transition duration-500 ease-in-out">
         <main className="max-w-5xl mx-auto">{children}</main>
       </body>
     </html>

@@ -8,7 +8,6 @@ export function CardField(props: CardFieldProps) {
   if (!props.field || !props.field.length) return null;
 
   const styleAddon = props.size === "lg" ? " flex flex-wrap gap-x-2" : "";
-  console.log(styleAddon);
 
   return (
     <div className="text-sm">
