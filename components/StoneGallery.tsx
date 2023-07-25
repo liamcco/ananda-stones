@@ -23,7 +23,7 @@ export default function StoneGallery(props: Props) {
 
   return (
     <div className="flex flex-col items-center gap-2">
-      <h2 className="text-base text-gray-400 text-center">
+      <h2 className="text-base text-center">
         {indexOfCurrentStone + 1}/{props.stones.length}
       </h2>
       <div
