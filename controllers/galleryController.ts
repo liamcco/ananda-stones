@@ -20,7 +20,7 @@ export function useGalleryController(stones: Stone[]) {
 
     const onNewIndex = (index: number) => {
         const newStone = allStones[index];
-        document.body.style.backgroundColor = newStone.palette.vibrant.background;
+        document.body.style.backgroundColor = newStone.palette.lightMuted?.background ?? "#fff";
     }
 
     return {
