@@ -31,7 +31,7 @@ export default function Carousel(props: Props) {
 
   return (
     <div
-      className="flex w-[24rem] overflow-x-auto snap-x snap-mandatory"
+      className="flex w-[24rem] md:w-[48rem] overflow-x-auto snap-x snap-mandatory"
       onScroll={handleScroll}
     >
       {children.map((child, index) => (
@@ -39,7 +39,7 @@ export default function Carousel(props: Props) {
           key={child.key}
           id={props.id ? props.id + index.toString() : undefined}
         >
-          <div className="w-[20rem] snap-always snap-center mx-[2rem]">
+          <div className="w-[20rem] md:w-[40rem] snap-always snap-center mx-[2rem] md:mx-[4rem]">
             {child}
           </div>
         </div>
