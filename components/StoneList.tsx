@@ -8,7 +8,7 @@ export default function StoneList(props: Props) {
   return (
     <div className="p-2">
       <div className="bg-white rounded-lg shadow-lg">
-        <div className="flex flex-col">
+        <div className="grid md:grid-cols-2">
           {props.stones.map((stone) => (
             <button
               key={stone._id}
