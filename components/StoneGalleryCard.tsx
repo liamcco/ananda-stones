@@ -10,7 +10,7 @@ export default function StoneGalleryCard(props: Props) {
   const stone = props.stone;
 
   return (
-    <div className="border-2 border-gray-500 rounded-lg p-1 bg-white shadow-xl">
+    <div className="rounded-lg p-1 bg-white shadow-lg">
       <div className="px-2 pb-4">
         <Image
           src={stone.image}
@@ -21,7 +21,7 @@ export default function StoneGalleryCard(props: Props) {
         />
 
         <div className="text-center mb-4">
-          <div className="font-extrabold text-2xl mb-2">{stone.name}</div>
+          <div className="font-extrabold text-2xl mb-2 px-4">{stone.name}</div>
           <div className="text-sm font-bold mb-4">{stone.subtitle}</div>
           <div className="text-sm">{stone.description}</div>
         </div>
