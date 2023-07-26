@@ -2,12 +2,13 @@
 
 import { useFilterController } from "@/controllers/filterController";
 import { Stone } from "@/types/Stone";
-import Searchfield from "./Searchfield";
-import StoneGallery from "./StoneGallery";
-import NoResults from "./NoResults";
-import ToggleViewModeButton from "./ToggleViewModeButton";
+import Searchfield from "./SearchControls/Searchfield";
+import StoneGallery from "./StoneGallery/StoneGallery";
+import NoResults from "./SearchControls/NoResults";
+import ToggleViewModeButton from "./SearchControls/ToggleViewModeButton";
 import { useState } from "react";
-import StoneList from "./StoneList";
+import StoneList from "./StoneList/StoneList";
+import AppTitle from "./AppTitle";
 
 interface Props {
   stones: Stone[];
@@ -19,6 +20,7 @@ export default function MainPageContent(props: Props) {
 
   return (
     <>
+      <AppTitle />
       <div className="flex gap-2 justify-center px-5">
         <Searchfield searchFor={controller.searchFor} />
         <ToggleViewModeButton
