@@ -5,6 +5,8 @@ export type Stone = {
     subtitle: string;
     description: string;
     image: string;
+    // TOOD: REMOVE
+    palette: any;
     tags: string[];
     chakra?: string[];
     element?: string[];

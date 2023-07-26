@@ -3,6 +3,7 @@
 import { Stone } from "@/types/Stone";
 import StoneGalleryCard from "./StoneGalleryCard";
 import { useState } from "react";
+import GalleryProgressIndicator from "./GalleryProgressIndicator";
 
 interface Props {
   stones: Stone[];
@@ -17,15 +18,22 @@ export default function StoneGallery(props: Props) {
     const index = Math.round(scrollPercentage * props.stones.length);
     if (index !== indexOfCurrentStone) {
       setIndexOfCurrentStone(index);
-      document.body.style.background = index % 2 === 0 ? "#cca6f6" : "#f9fafb";
+      const currentStone = props.stones[index];
+      const newColor = currentStone.palette.lightVibrant.background;
+      document.body.style.background = newColor;
+    }
+  };
+
+  const goToStone = (index: number) => {
+    const card = document.getElementById("card-" + index.toString());
+    if (card) {
+      card.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <div className="flex flex-col items-center gap-2">
-      <h2 className="text-base text-center">
-        {indexOfCurrentStone + 1}/{props.stones.length}
-      </h2>
+      <GalleryProgressIndicator indexOfCurrentStone={indexOfCurrentStone} numOfStones={props.stones.length}/>
       <div
         className="flex w-[24rem] overflow-x-auto snap-x snap-mandatory"
         onScroll={handleScroll}
