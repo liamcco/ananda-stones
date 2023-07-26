@@ -17,7 +17,7 @@ export default function StoneGallery(props: Props) {
   const galleryController = useGalleryController(props.stones);
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-1 my-4">
       <GalleryProgressIndicator
         indexOfCurrentStone={indexOfCurrentStone}
         numOfStones={props.stones.length}
