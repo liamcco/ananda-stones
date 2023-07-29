@@ -1,5 +1,5 @@
 import { Stone } from "@/types/Stone";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 
 
 export interface GalleryController {
@@ -19,6 +19,7 @@ export function useGalleryController(stones: Stone[]): GalleryController {
     const [indexOfCurrentStone, setIndexOfCurrentStone] = useState(0);
 
     const goToStone = (index: number) => {
+        console.log('going to stone', index);
         const card = document.getElementById(
             identifier + index.toString()
         );
@@ -43,6 +44,7 @@ export function useGalleryController(stones: Stone[]): GalleryController {
     }
 
     const selectStone = (_id: string) => {
+        console.log('selecting stone', _id);
         const index = allStones.findIndex(stone => stone._id === _id);
         goToStone(index);
     }
@@ -58,6 +60,12 @@ export function useGalleryController(stones: Stone[]): GalleryController {
         const newIndex = indexOfCurrentStone - 1;
         goToStone(newIndex);
     }
+
+    useEffect(() => {
+        const newStone = allStones[indexOfCurrentStone];
+        document.body.style.backgroundColor = newStone.metadata?.palette?.lightMuted?.background ?? "#fff";
+    }, [allStones, indexOfCurrentStone])
+
 
     return {
         goToStone,

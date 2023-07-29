@@ -6,7 +6,7 @@ import Searchfield from "./SearchControls/Searchfield";
 import StoneGallery from "./StoneGallery/StoneGallery";
 import NoResults from "./SearchControls/NoResults";
 import ToggleViewModeButton from "./SearchControls/ToggleViewModeButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StoneList from "./StoneList/StoneList";
 import AppTitle from "./AppTitle";
 import { useGalleryController } from "@/controllers/galleryController";
@@ -27,7 +27,9 @@ export default function MainPageContent(props: Props) {
 
   const selectStone = (_id: string) => {
     toggle();
-    galleryController.selectStone(_id);
+    setTimeout(() => {
+      galleryController.selectStone(_id);
+    }, 50);
   };
 
   return (
@@ -38,17 +40,20 @@ export default function MainPageContent(props: Props) {
         <ToggleViewModeButton onToggle={toggle} viewMode={viewMode} />
       </div>
       {filterController.matchingStones.length ? (
-        viewMode === "card" ? (
-          <StoneGallery
-            stones={filterController.matchingStones}
-            controller={galleryController}
-          />
-        ) : (
-          <StoneList
-            stones={filterController.matchingStones}
-            selectStone={selectStone}
-          />
-        )
+        <>
+          <div className={viewMode === "list" ? "" : "hidden"}>
+            <StoneList
+              stones={filterController.matchingStones}
+              selectStone={selectStone}
+            />
+          </div>
+          <div className={viewMode === "card" ? "" : "hidden"}>
+            <StoneGallery
+              stones={filterController.matchingStones}
+              controller={galleryController}
+            />
+          </div>
+        </>
       ) : (
         <NoResults />
       )}
