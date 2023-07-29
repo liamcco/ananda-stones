@@ -1,6 +1,7 @@
 import type { Stone } from "@/types/Stone";
 import Image from "next/image";
 import { CardField } from "./CardField";
+import { decode } from "blurhash";
 
 interface Props {
   stone: Stone;
@@ -19,7 +20,15 @@ export default function StoneGalleryCard(props: Props) {
           height={300}
           className="p-4 mx-auto"
           placeholder="blur"
-          blurDataURL={stone.metadata.lqip}
+          blurDataURL={
+            stone.metadata?.blurHash
+              ? `data:image/png;base64,${decode(
+                  stone.metadata.blurHash,
+                  32,
+                  32
+                )}`
+              : ""
+          }
         />
 
         <div className="text-center mb-4">
