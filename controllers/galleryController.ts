@@ -7,7 +7,7 @@ interface GalleryController {
     onNewIndex: (index: number) => void;
 }
 
-export function useGalleryController(stones: Stone[]) {
+export function useGalleryController(stones: Stone[]): GalleryController {
     const identifier = "card-";
     const allStones = stones;
 
@@ -20,7 +20,7 @@ export function useGalleryController(stones: Stone[]) {
 
     const onNewIndex = (index: number) => {
         const newStone = allStones[index];
-        document.body.style.backgroundColor = newStone.palette.lightMuted?.background ?? "#fff";
+        document.body.style.backgroundColor = newStone.metadata?.palette?.lightMuted?.background ?? "#fff";
     }
 
     return {
