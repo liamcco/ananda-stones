@@ -16,6 +16,14 @@ export default function StoneGallery(props: Props) {
   const indexOfCurrentStone = indexState[0];
   const galleryController = useGalleryController(props.stones);
 
+  const next = () => {
+    const nextIndex = indexState[0] + 1;
+    if (nextIndex < props.stones.length) {
+      indexState[1](nextIndex);
+      galleryController.goToStone(nextIndex);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center gap-1 my-4">
       <GalleryProgressIndicator
@@ -28,7 +36,7 @@ export default function StoneGallery(props: Props) {
         onNewIndex={galleryController.onNewIndex}
       >
         {...props.stones.map((stone) => (
-          <StoneGalleryCard key={stone._id} stone={stone} />
+          <StoneGalleryCard key={stone._id} stone={stone} next={next} />
         ))}
       </Carousel>
     </div>

@@ -1,4 +1,4 @@
-import { Children, useEffect } from "react";
+import { Children, cloneElement, useEffect } from "react";
 import CarouselButtonSet from "./CarouselButtonSet";
 
 interface CarouselChild extends React.ReactElement {

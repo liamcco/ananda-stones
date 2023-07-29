@@ -14,9 +14,10 @@ export function useGalleryController(stones: Stone[]): GalleryController {
     const goToStone = (index: number) => {
         const card = document.getElementById(identifier + index.toString());
         if (card) {
-          card.scrollIntoView({ behavior: "smooth" });
+          console.log('scrolling to card', index);
+          card.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
         }
-    };
+    }
 
     const onNewIndex = (index: number) => {
         const newStone = allStones[index];
