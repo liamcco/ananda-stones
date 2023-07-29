@@ -1,5 +1,4 @@
 import { Children } from "react";
-import CarouselButtonSet from "./CarouselButtonSet";
 
 interface CarouselChild extends React.ReactElement {
   key: string;
@@ -24,22 +23,20 @@ export default function Carousel(props: Props) {
   };
 
   return (
-    <>
-      <div
-        className="flex w-[24rem] md:w-[48rem] overflow-x-auto snap-x snap-mandatory"
-        onScroll={handleScroll}
-      >
-        {children.map((child, index) => (
-          <div
-            key={child.key}
-            id={props.id ? props.id + index.toString() : undefined}
-          >
-            <div className="w-[20rem] md:w-[40rem] snap-always snap-center mx-[2rem] md:mx-[4rem]">
-              {child}
-            </div>
+    <div
+      className="flex w-[24rem] md:w-[48rem] overflow-x-auto snap-x snap-mandatory"
+      onScroll={handleScroll}
+    >
+      {children.map((child, index) => (
+        <div
+          key={child.key}
+          id={props.id ? props.id + index.toString() : undefined}
+        >
+          <div className="w-[20rem] md:w-[40rem] snap-always snap-center mx-[2rem] md:mx-[4rem]">
+            {child}
           </div>
-        ))}
-      </div>
-    </>
+        </div>
+      ))}
+    </div>
   );
 }
