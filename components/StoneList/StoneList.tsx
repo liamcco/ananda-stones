@@ -2,6 +2,7 @@ import { Stone } from "@/types/Stone";
 
 interface Props {
   stones: Stone[];
+  selectStone: (_id: string) => void;
 }
 
 export default function StoneList(props: Props) {
@@ -13,6 +14,7 @@ export default function StoneList(props: Props) {
             <button
               key={stone._id}
               className="transition hover:scale-105 bg-white rounded-lg hover:shadow-md"
+              onClick={() => props.selectStone(stone._id)}
             >
               <div className="p-4">
                 <h3 className="text-xl font-semibold">{stone.name}</h3>

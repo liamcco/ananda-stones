@@ -1,4 +1,4 @@
-import { Children, useEffect } from "react";
+import { Children } from "react";
 import CarouselButtonSet from "./CarouselButtonSet";
 
 interface CarouselChild extends React.ReactElement {
@@ -8,27 +8,20 @@ interface CarouselChild extends React.ReactElement {
 interface Props {
   children: React.ReactNode;
   onNewIndex?: (index: number) => void;
-  indexState: [number, React.Dispatch<React.SetStateAction<number>>];
   id?: string;
+  next: () => void;
+  previous: () => void;
 }
 
 export default function Carousel(props: Props) {
   const children = Children.toArray(props.children) as CarouselChild[];
-  const [indexOfCurrentChild, setIndexOfCurrentChild] = props.indexState;
 
   const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     const scrollPercentage = target.scrollLeft / target.scrollWidth;
     const index = Math.round(scrollPercentage * children.length);
-    if (index !== indexOfCurrentChild) {
-      setIndexOfCurrentChild(index);
-      props.onNewIndex && props.onNewIndex(index);
-    }
+    props.onNewIndex && props.onNewIndex(index);
   };
-
-  useEffect(() => {
-    props.onNewIndex && props.onNewIndex(indexOfCurrentChild);
-  });
 
   return (
     <>
@@ -47,7 +40,6 @@ export default function Carousel(props: Props) {
           </div>
         ))}
       </div>
-      <CarouselButtonSet indexOfCurrentChild={indexOfCurrentChild} />
     </>
   );
 }
