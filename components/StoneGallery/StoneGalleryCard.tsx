@@ -20,15 +20,7 @@ export default function StoneGalleryCard(props: Props) {
           height={300}
           className="p-4 mx-auto"
           placeholder="blur"
-          blurDataURL={
-            stone.metadata?.blurHash
-              ? `data:image/png;base64,${decode(
-                  stone.metadata.blurHash,
-                  32,
-                  32
-                )}`
-              : ""
-          }
+          blurDataURL={stone.metadata.lqip}
         />
 
         <div className="text-center mb-4">
