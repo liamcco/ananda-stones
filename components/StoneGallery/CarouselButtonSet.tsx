@@ -1,5 +1,6 @@
 interface Props {
-  indexOfCurrentChild: number;
+  next: () => void;
+  previous: () => void;
 }
 
 export default function CarouselButtonSet(props: Props) {
@@ -7,17 +8,7 @@ export default function CarouselButtonSet(props: Props) {
     <div className="hidden md:flex justify-between absolute z-10 w-[42rem]">
       <button
         className="bg-[#232323] text-[#659cef] rounded-full w-10 h-10 flex justify-center items-center"
-        onClick={() => {
-          const cardToFind =
-            "card-" + (props.indexOfCurrentChild - 1).toString();
-          const card = document.getElementById(cardToFind);
-          if (card) {
-            card.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-            });
-          }
-        }}
+        onClick={props.next}
       >
         <svg
           className="w-6 h-6"
@@ -35,17 +26,7 @@ export default function CarouselButtonSet(props: Props) {
       </button>
       <button
         className="bg-[#232323] text-[#659cef] rounded-full w-10 h-10 flex justify-center items-center"
-        onClick={() => {
-          const cardToFind =
-            "card-" + (props.indexOfCurrentChild + 1).toString();
-          const card = document.getElementById(cardToFind);
-          if (card) {
-            card.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-            });
-          }
-        }}
+        onClick={props.previous}
       >
         <svg
           className="w-6 h-6"
