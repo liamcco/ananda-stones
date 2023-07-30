@@ -1,9 +1,12 @@
 import type { Stone } from "@/types/Stone";
 import Image from "next/image";
 import { CardField } from "./CardField";
+import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 
 interface Props {
   stone: Stone;
+  next: () => void;
+  previous: () => void;
 }
 
 export default function StoneGalleryCard(props: Props) {
@@ -32,6 +35,21 @@ export default function StoneGalleryCard(props: Props) {
           <CardField title="Element" field={stone.element} />
           <CardField title="Zodiac" field={stone.zodiac} />
           <CardField title="Månad" field={stone.month} />
+        </div>
+
+        <div className="flex justify-between">
+          <button
+            onClick={props.previous}
+            className="bg-slate-200 rounded-full p-2"
+          >
+            <GrLinkPrevious />
+          </button>
+          <button
+            onClick={props.next}
+            className="bg-slate-200 rounded-full p-2"
+          >
+            <GrLinkNext />
+          </button>
         </div>
       </div>
     </div>

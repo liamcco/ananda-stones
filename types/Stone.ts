@@ -1,4 +1,4 @@
-import { ImagePalette } from "sanity";
+import { ImageMetadata } from "sanity";
 
 export type Stone = {
     _id: string;
@@ -7,7 +7,7 @@ export type Stone = {
     subtitle: string;
     description: string;
     image: string;
-    palette: ImagePalette
+    metadata: ImageMetadata
     tags: string[];
     chakra?: string[];
     element?: string[];

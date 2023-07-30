@@ -2,33 +2,35 @@
 
 import { Stone } from "@/types/Stone";
 import StoneGalleryCard from "./StoneGalleryCard";
-import { useState } from "react";
 import GalleryProgressIndicator from "./GalleryProgressIndicator";
 import Carousel from "./Carousel";
-import { useGalleryController } from "@/controllers/galleryController";
+import { GalleryController } from "@/controllers/galleryController";
 
 interface Props {
   stones: Stone[];
+  controller: GalleryController;
 }
 
 export default function StoneGallery(props: Props) {
-  const indexState = useState(0);
-  const indexOfCurrentStone = indexState[0];
-  const galleryController = useGalleryController(props.stones);
-
   return (
     <div className="flex flex-col items-center gap-1 my-4">
       <GalleryProgressIndicator
-        indexOfCurrentStone={indexOfCurrentStone}
+        indexOfCurrentStone={props.controller.indexOfCurrentStone}
         numOfStones={props.stones.length}
       />
       <Carousel
-        indexState={indexState}
-        id={galleryController.identifier}
-        onNewIndex={galleryController.onNewIndex}
+        id={props.controller.identifier}
+        next={props.controller.next}
+        previous={props.controller.previous}
+        onNewIndex={props.controller.onNewIndex}
       >
         {...props.stones.map((stone) => (
-          <StoneGalleryCard key={stone._id} stone={stone} />
+          <StoneGalleryCard
+            key={stone._id}
+            stone={stone}
+            next={props.controller.next}
+            previous={props.controller.previous}
+          />
         ))}
       </Carousel>
     </div>
