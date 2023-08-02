@@ -18,9 +18,9 @@ export default function StoneGalleryCard(props: Props) {
         <Image
           src={stone.image}
           alt={stone.name}
-          width={300}
-          height={300}
-          className="p-4 mx-auto"
+          width={600}
+          height={600}
+          className="p-4 h-60 object-contain w-full"
         />
 
         <div className="text-center mb-4">
