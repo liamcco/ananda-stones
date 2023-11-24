@@ -13,6 +13,7 @@ export type Stone = {
     element?: string[];
     zodiac?: string[];
     month?: string[];
+    body?: string[];
     instore?: boolean;
 }
 

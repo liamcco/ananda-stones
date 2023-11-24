@@ -35,6 +35,7 @@ export default function StoneGalleryCard(props: Props) {
           <CardField title="Element" field={stone.element} />
           <CardField title="Zodiac" field={stone.zodiac} />
           <CardField title="Månad" field={stone.month} />
+          <CardField title="Kropp" field={stone.body} />
         </div>
 
         <div className="flex justify-between">

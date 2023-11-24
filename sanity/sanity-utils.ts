@@ -20,6 +20,7 @@ export async function getStones(): Promise<Stone[]> {
             element, 
             zodiac,
             month,
+            body,
             instore
         }`
     )
