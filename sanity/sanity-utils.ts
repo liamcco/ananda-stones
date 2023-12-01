@@ -25,5 +25,7 @@ export async function getStones(): Promise<Stone[]> {
         }`
     )
 
+    console.log(stones)
+
     return stones
 }
